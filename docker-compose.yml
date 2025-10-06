@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    ports:
+      - "443:443"
+    volumes:
+      # Persist database files
+      - ./server/database:/app/server/database
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
